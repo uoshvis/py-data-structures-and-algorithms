@@ -1,5 +1,7 @@
 # py-data-structures-and-algorithms
 
+Learning materials for data structures and algorithms in Python.
+
 6. [Stacks, Queues, Deques](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/stacks_queues_deques)
 7. [Linked Lists](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/linked_list)
 8. [Trees](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/trees)
