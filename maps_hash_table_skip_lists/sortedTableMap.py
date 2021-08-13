@@ -75,6 +75,17 @@ class SortedTableMap(MapBase):
         else:
             return None
 
+    def find_le(self, k):
+        j = self._find_index(k, 0, len(self._table) - 1)  # j's key >= k
+        if j < len(self._table) and self._table[j]._key == k:   # j is equal to k
+            return (self._table[j]._key, self._table[j]._value)
+        else:
+            j -= 1
+        if j > 0:
+            return (self._table[j]._key, self._table[j]._value)  # less than
+        else:
+            return None
+
     def find_lt(self, k):
         j = self._find_index(k, 0, len(self._table) - 1)    # j's key >= k
         if j > 0:
