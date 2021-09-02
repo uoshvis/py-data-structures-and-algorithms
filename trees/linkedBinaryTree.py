@@ -89,6 +89,7 @@ class LinkedBinaryTree(BinaryTree):
 
     class _Node:
         __slots__ = '_element', '_parent', '_left', '_right'
+
         def __init__(self, element, parent=None, left=None, right=None):
             self._element = element
             self._parent = parent
@@ -151,21 +152,24 @@ class LinkedBinaryTree(BinaryTree):
         return count
 
     def _add_root(self, e):
-        if self._root is not None: raise ValueError('Root exists')
+        if self._root is not None:
+            raise ValueError('Root exists')
         self._size = 1
         self._root = self._Node(e)
         return self._make_position(self._root)
 
     def _add_left(self, p, e):
         node = self._validate(p)
-        if node._left is not None: raise ValueError('Left child exists')
+        if node._left is not None:
+            raise ValueError('Left child exists')
         self._size += 1
         node._left = self._Node(e, node)
         return self._make_position(node._left)
 
     def _add_right(self, p, e):
         node = self._validate(p)
-        if node._right is not None: raise ValueError('Right child exits')
+        if node._right is not None:
+            raise ValueError('Right child exits')
         self._size += 1
         self._right = self._Node(e, node)
         return self._make_position(node._right)
@@ -178,7 +182,8 @@ class LinkedBinaryTree(BinaryTree):
 
     def _delete(self, p):
         node = self._validate(p)
-        if self.num_children(p) == 2: raise ValueError('p has two children')
+        if self.num_children(p) == 2:
+            raise ValueError('p has two children')
         child = node._left if node._left else node._right
         if child is not None:
             child._parent = node._parent
@@ -197,7 +202,8 @@ class LinkedBinaryTree(BinaryTree):
 
     def _attach(self, p, t1, t2):
         node = self._validate(p)
-        if not self.is_leaf(p): raise ValueError('position must be leaf')
+        if not self.is_leaf(p):
+            raise ValueError('position must be leaf')
         if not type(self) is type(t1) is type(t2):
             raise TypeError('Tree types must match')
         self._size += len(t1) + len(t2)
