@@ -8,3 +8,4 @@ Learning materials for data structures and algorithms in Python.
 9. [Priority Queues](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/priority_queues)
 10. [Maps, Hash Tables, Skip Lists](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/maps_hash_table_skip_lists)
 11. [Search Trees](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/search_trees)
+12. [Sorting and Selection](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/sorting_and_selection)
