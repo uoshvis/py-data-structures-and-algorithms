@@ -1,6 +1,7 @@
 import math
 
 from linked_list.linkedQueue import LinkedQueue
+from priority_queues.priorityQueueBase import PriorityQueueBase
 
 
 # running time is O(n1+n2)
@@ -97,3 +98,15 @@ def merge_sort(S):
         src, dest = dest, src               # reverse roles of lists
     if S is not src:
         S[0:n] = src[0:n]                   # additional copy to get results to S
+
+
+# An approach for implementing the decorate-sort-undecorate pattern based upon the array-based merge-sort
+def decorated_merge_sort(data, key=None):
+    """Demonstration of the decorate-sort-undecorate pattern."""
+    if key is not None:
+        for j in range(len(data)):
+            data[j] = PriorityQueueBase._Item(key(data[j]), data[j])  # decorate each element _Item is identical to PriorityQueueBase
+        merge_sort(data)                            # sort with existing algorithm
+    if key is not None:
+        for j in range(len(data)):
+            data[j] = data[j]._value                # undecorate each element
