@@ -1,3 +1,7 @@
+class Empty(Exception):
+    pass
+
+
 class CircularQueue:
     class _Node:
         __slots__ = '_element', '_next'
@@ -23,6 +27,7 @@ class CircularQueue:
         return self._head._element
 
     def dequeue(self):
+        # FIFO
         if self.is_empty():
             raise Empty('Queue is empty')
         oldhead = self._tail._next
@@ -33,17 +38,18 @@ class CircularQueue:
         self._size -= 1
         return oldhead._elemet
 
-    def enqueue(self):
+    def enqueue(self, e):
+        """Add an element to the back of queue."""
         newest = self._Node(e, None)
         if self.is_empty():
-            raise Empty('Queue is empty')
-        if self.is_empty():
-            self._head = newest
+            self._next = newest                 # initialize circularly
         else:
-            self._tail._next = newest
-        self._tail = newest
+            newest._next = self._tail._next     # new node points to head
+            self._tail._next = newest           # old tail points to new node
+        self._tail = newest                     # new node becomes the tail
         self.size += 1
 
     def rotate(self):
+        """Rotate front element to the back of the queue."""
         if self._size > 0:
-            self._tail = self._tail._next
+            self._tail = self._tail._next       # old head becomes new tail
