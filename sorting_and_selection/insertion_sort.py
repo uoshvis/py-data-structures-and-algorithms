@@ -1,3 +1,7 @@
+# running time is O(n+m) where m is number of inversions (number of pairs of elements out of order
+# good for small sequences n < 50, and almost sorted
+# O(n^2) outside of special contexts
+
 def insertion_sort(A):
     """ Sort list of comparable elements into nondecreasing order. """
     for k in range(1, len(A)):      # from 1 no n-1
