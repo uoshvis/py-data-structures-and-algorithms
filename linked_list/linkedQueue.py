@@ -1,6 +1,7 @@
 class Empty(Exception):
     pass
 
+
 class LinkedQueue:
     class _Node:
         __slots__ = '_element', '_next'
