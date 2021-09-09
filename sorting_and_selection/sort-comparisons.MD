@@ -2,11 +2,11 @@
 
 ### Running times
 
-| O(n^2) in the avg and worst case                         | O(n log n) | linear time for certain types of keys| 
-|----------------------------------------------------------|------------|--------------------------------------|
-| insertion-sort                                           | heap-sort  |bucket-sort                           |
-| selection-sort                                           | merge-sort |radix-sort                            |
-|                                                          | quick-sort |                                      |
+| O(n<sup>2</sup>) in the avg and worst case                         | O(n log n) | Linear time for certain types of keys| 
+|--------------------------------------------------------------------|------------|--------------------------------------|
+| insertion-sort                                                     | heap-sort  |bucket-sort                           |
+| selection-sort                                                     | merge-sort |radix-sort                            |
+|                                                                    | quick-sort |                                      |
 
 ### Trade-offs
 
@@ -19,11 +19,11 @@
 - Running time O(m+n), where m - number of inversions
 - Excellent for sorting small sequences (< 50)
 - Excellent for almost sorted
-- O(n^2) time performance makes it a poor choice outside special contexts
+- O(n<sup>2</sup>) time performance makes it a poor choice outside special contexts
 
 #### Selection sort
 
-- Poor choice since the best case is O(n^2)
+- Poor choice since the best case is O(n<sup>2</sup>)
 
 #### Heap sort
 
@@ -51,7 +51,7 @@ initial runs in the data while using **insertion-sort** to build additional runs
 
 #### Quick sort
 
-- O(n^2) worst time performance makes susceptible in real-time applications
+- O(n<sup>2</sup>) worst time performance makes susceptible in real-time applications
 - Expected performance O(n log n) outperforms both heap-sort and merge-sort
 - Does not provide stable sort, due to swapping of elements during partitioning step
 - For decades was the default choice for a general-purpose, in-memnory sorting algorithm (C, Unix, Java 6)
