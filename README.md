@@ -10,3 +10,4 @@ Learning materials for data structures and algorithms in Python.
 11. [Search Trees](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/search_trees)
 12. [Sorting and Selection](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/sorting_and_selection)
 13. [Text Processing](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/text_processing)
+14. [Graph Algorithms](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/graph_algorithms)
