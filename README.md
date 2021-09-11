@@ -34,7 +34,7 @@
 1, log(n), n, n * log(n), n<sup>2</sup>, n<sup>3</sup>, 2<sup>n</sup>
 
 ---
-## Learning materials for data structures and algorithms in Python
+## Learning materials for data structures and algorithms with Python
 
 1. [Stacks, Queues, Deques](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/stacks_queues_deques)
 2. [Linked Lists](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/linked_list)
