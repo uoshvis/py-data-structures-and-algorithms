@@ -106,3 +106,31 @@ class Graph:
         e = self.Edge(u, v, x)
         self._outgoing[u][v] = e
         self._incoming[v][u] = e
+
+
+# Basic depth-first search on a graph, starting at a designated vertex u
+
+
+def DFS(g, u, discovered):
+    """
+        Perform DFS of the undiscovered portion of Graph g starting at Vertex u.
+        discovered is a dictionary mapping each vertex to the edge that was used to
+        discover it during the DFS. (u should be ”discovered” prior to the call.)
+        Newly discovered vertices will be added to the dictionary as a result.
+    """
+    for e in g.incident_edges(u):
+        v = e.opposite(u)
+        if v not in discovered:    # discovered is dict
+            discovered[v] = e
+            DFS(g, v, discovered)
+
+
+def run_DFS():
+    g = Graph()
+    u = g.insert_vertex()
+    # Python dictionary that maps a vertex of the graph to the tree edge
+    # that was used to discover that vertex.
+    # source vertex u occurs as a key of the dictionary
+    # with None as its value.
+    result = {u: None}
+    DFS(g, u, result)
