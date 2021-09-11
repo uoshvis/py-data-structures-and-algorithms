@@ -1,6 +1,6 @@
 # py-data-structures-and-algorithms
 
-## Basics
+## Basic principles
 ### OOP design goals
 
 - Robustness
