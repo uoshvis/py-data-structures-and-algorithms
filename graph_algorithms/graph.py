@@ -112,9 +112,9 @@ class Graph:
         self._incoming[v][u] = e
 
 
+# --------------------- Graph Traversals ---------------------------------
+
 # Basic depth-first search on a graph, starting at a designated vertex u
-
-
 def DFS(g, u, discovered):
     """
         Perform DFS of the undiscovered portion of Graph g starting at Vertex u.
@@ -191,6 +191,8 @@ def BFS(g, s, discovered):
         level = next_level                      # relabel ’next’ level to become current
 
 
+# -------------------------- Transitive Closure --------------------------------------
+
 # Floyd-Warshall
 def floyd_warshall(g):
     """Return a new graph that is the transitive closure of g.
@@ -209,6 +211,8 @@ def floyd_warshall(g):
                         if closure.get_edge(verts[i], verts[j]) is None:
                             closure.insert_edge(verts[i], verts[j])
 
+
+# ------------------------ Directed Acyclic Graphs ---------------------------
 
 # Topological sorting algorithm
 def topological_sort(g):
@@ -232,6 +236,8 @@ def topological_sort(g):
                 ready.append(v)
     return topo
 
+
+# ------------------------- Shortest Paths ----------------------------------------
 
 # Dijkstra's algorithm
 def shortest_path_lengths(g, src):
@@ -285,3 +291,44 @@ def shortest_path_tree(g, s, d):
                 if d[v] == d[u] + wgt:
                     tree[v] = e                             # edge e is used to reach v
     return tree
+
+
+# -----------------------------Minimum Spanning Trees-----------------------------------
+
+# Prim-Jarnik algorithm
+# O((n+m) log n) with heap based priority queue, or O(m log n) for a connected graph
+# O(n^2) using unsorted list as priority queue
+def MST_PrimJarnik(g):
+    """Compute a minimum spanning tree of weighted graph g.
+
+    Return a list of edges that comprise the MST (in arbitrary order).
+    """
+    d = {}                              # d[v] is bound on distance to tree
+    tree = []                           # list of edges in spanning tree
+    pq = AdaptableHeapPriorityQueue()   # d[v] maps to value (v, e=(u,v))
+    pqlocator = {}                      # map from vertex to its pq locator
+
+    # for each vertex v of the graph, add an entry to the priority queue, with
+    # the source having distance 0 and all others having infinite distance
+
+    for v in g.vertices():
+        if len(d) == 0:                         # this is the first node
+            d[v] = 0                            # make it the root
+        else:
+            d[v] = float('inf')                 # positive infinity
+        pqlocator[v] = pq.add(d[v], (v, None))
+
+    while not pq.is_empty():
+        key, value = pq.remove_min()
+        u, edge = value                         # unpack tuple from pq
+        del pqlocator[u]                        # u is no longer in pq
+        if edge is not None:
+            tree.append(edge)                   # add edge to tree
+        for link in g.incident_edges(u):
+            v = link.opposite(u)
+            if v in pqlocator:                  # thus v not yet in tree
+                # see if edge (u,v) better connects v to the growing tree
+                wgt = link.element()
+                if wgt < d[v]:                  # better edge to v?
+                    d[v] = wgt                  # update the distance
+                    pq.update(pqlocator[v], d[v], (v, link))    # update the pq entry
