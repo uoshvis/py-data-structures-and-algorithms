@@ -45,3 +45,4 @@
 7. [Sorting and Selection](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/sorting_and_selection)
 8. [Text Processing](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/text_processing)
 9. [Graph Algorithms](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/graph_algorithms)
+10. [Memory Management](https://github.com/uoshvis/py-data-structures-and-algorithms/tree/main/memory_management)
